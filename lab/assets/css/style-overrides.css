@@ -1,0 +1,663 @@
+/*
+--------------------------------------------------------------------------------
+Style Overrides
+--------------------------------------------------------------------------------
+*/
+
+
+
+/* Everyone needs a clearfix! */
+.clearfix:after {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+.clearfix { display: inline-block; }
+/* Hides from IE-mac \*/
+* html .clearfix { height: 1%; }
+.clearfix { display: block; }
+/* End hide from IE-mac */
+
+
+
+/* Header */
+header
+{
+	display: none;
+}
+
+/* Appropriate place for logo */
+#logo
+{
+	margin: 10px 0;
+}
+
+
+
+/* Fixes odd avatar alignment */
+.acomment-avatar
+{
+	margin-right: 14px;
+}
+
+#buddypress ul.item-list li .acomment-avatar img.avatar
+{
+	margin: 0;
+}
+
+
+
+/* Group Email Subs link colour fix */
+a.group-subscription-options-link
+{
+	color: #000;
+}
+
+#item-header-content a.group-subscription-options-link
+{
+	color: #fff;
+}
+
+#groups-dir-list .group-subscription-options,
+#groups-list .group-subscription-options,
+#buddypress div#item-header .group-subscription-options
+{
+	width: 400px;
+	line-height: 3;
+	position: absolute;
+	height: 210px;
+}
+
+body #buddypress a.group-subscription-close
+{
+	line-height: 0;
+	padding: 14px;
+	cursor: pointer;
+}
+
+body #buddypress a.group-sub
+{
+	cursor: pointer;
+}
+
+#groups-dir-list .group-subscription-div,
+#groups-list .group-subscription-div
+{
+	text-align: right;
+}
+
+
+
+/* Invite Anyone columns fix */
+body.invite-anyone #buddypress form.standard-form .main-column,
+body.group-create #buddypress form.standard-form .main-column
+{
+	margin-left: 4%;
+}
+
+@media screen and (max-width:55em) {
+
+	body.invite-anyone #buddypress form.standard-form .main-column,
+	body.group-create #buddypress form.standard-form .main-column
+	{
+		margin-left: 0;
+	}
+
+}
+
+
+
+/* Profile fixes */
+#buddypress #item-buttons div.generic-button a
+{
+	line-height: 2.6;
+}
+
+#buddypress div#item-header
+{
+	overflow: visible;
+	padding-bottom: 1px;
+}
+
+#buddypress div.profile .bp-widget.base h4
+{
+	display: none;
+}
+
+.member-courses-header
+{
+	margin-bottom: 1em;
+}
+
+
+
+/* Members dir button fixes */
+#buddypress ul.item-list li div.action
+{
+	line-height: 2.4;
+}
+
+
+
+/* Messaging fixes */
+#buddypress table tr td.thread-info p
+{
+	font-size: 16px;
+}
+
+#buddypress table tr td.thread-info p a
+{
+	text-decoration: underline;
+}
+
+#buddypress table tr td.thread-info p.thread-excerpt
+{
+	font-size: 12px;
+}
+
+.message-content p
+{
+	line-height: 2;
+}
+
+
+
+
+/* Groups */
+#buddypress #groups-list span.activity
+{
+	margin: 0;
+}
+
+#buddypress #groups-list li div.meta
+{
+	margin-top: 0;
+	text-transform: none;
+	line-height: 2;
+}
+
+#buddypress #groups-list li div.item-desc
+{
+	width: 60%;
+	margin-left: 95px;
+}
+
+
+
+/* Group Documents */
+li#nav-documents-groups-li,
+li#nav-documents-personal-li
+{
+	background-position: 80% 52%;
+}
+
+#bp-group-documents
+{
+	margin: 0;
+}
+
+#bp-group-documents div#message.info
+{
+	margin: 0 0 10px 0;
+}
+
+#bp-group-documents div.item-list-tabs#subnav
+{
+	padding-bottom: 10px;
+}
+
+#bp-group-documents ul#bp-group-documents-list li
+{
+	margin-top: 1px;
+	border-bottom: 1px solid #C2C2C2;
+}
+
+#buddypress #bp-group-documents-list li.alt
+{
+	background-color: #fafafa;
+}
+
+#buddypress #bp-group-documents-list li.featured
+{
+	border-left: 12px solid #78c8ce;
+}
+
+body.curriculum #buddypress #bp-group-documents-list li,
+#buddypress #bp-group-documents-list li.featured
+{
+	font-size: 125%;
+}
+
+#bp-group-documents-list .bp-group-documents-title
+{
+	font-size: 125%;
+	margin-bottom: 0.4em;
+}
+
+body.curriculum #buddypress #bp-group-documents-list li .bp-group-documents-meta,
+#buddypress #bp-group-documents-list li.featured .bp-group-documents-meta
+{
+	font-size: 65%;
+}
+
+#buddypress #bp-group-documents-list li .bp-group-documents-meta
+{
+	margin-bottom: 0.7em;
+}
+
+body.curriculum #buddypress #bp-group-documents-list li .group-documents-description,
+#buddypress #bp-group-documents-list li.featured .group-documents-description
+{
+	font-size: 80%;
+}
+
+#buddypress #bp-group-documents-list li .group-documents-description
+{
+	margin-right: 20px;
+	display: block;
+}
+
+#buddypress #bp-group-documents-upload-button
+{
+	margin: 0;
+}
+
+/*
+#buddypress .standard-form label.bp-group-documents-featured-label,
+#buddypress #bp-group-documents-form label
+{
+	display: inline-block;
+}
+*/
+
+
+
+/* BP Docs */
+table.group-docs-options
+{
+	margin-bottom: 1em;
+}
+
+table.group-docs-options td.label
+{
+	display: table-cell;
+	width: 200px;
+	padding: 0;
+	vertical-align: middle;
+}
+
+#buddypress .standard-form .group-docs-options label
+{
+	color: #333;
+	font-weight: bold;
+	font-size: 14px;
+	margin: 0;
+	padding: 0;
+}
+
+.my-account.bp-docs #item-body > h3
+{
+	display: none;
+}
+
+.post-type-archive-bp_doc div.docs-info-header,
+.group-docs div.docs-info-header
+{
+	background: transparent;
+	padding: 5px 0;
+	margin-bottom: 10px;
+}
+
+div.docs-info-header p.currently-viewing
+{
+	font-size: 1em;
+}
+
+div.docs-info-header #docs-filter-meta
+{
+	font-size: 0.8em;
+}
+
+table.doctable
+{
+	width: 100%;
+	border: 1px solid #eee;
+	margin-bottom: 1em;
+}
+
+.title-cell > a
+{
+	font-size: 1.3em;
+	font-weight: bold;
+}
+
+.post-type-archive-bp_doc #content div.content > #buddypress
+{
+	margin-top: 0;
+}
+
+#buddypress #bp-create-doc-button
+{
+	margin-top: 0;
+}
+
+
+
+/* Mass Messaging */
+#buddypress .standard-form label.content
+{
+	padding: 0;
+}
+
+#buddypress #item-body #send_message_form h3
+{
+	margin: 1em 0 -0.5em 0;
+}
+
+#buddypress #item-body #send_message_form input[type="checkbox"]
+{
+	margin-right: 0.5em;
+}
+
+#buddypress #item-body #send_message_form input[type="submit"]
+{
+	margin-top: 1em;
+}
+
+
+
+/* BP Group Calendar */
+.single-item.groups.calendar .bp-widget:first-child
+{
+	margin-top: 0;
+	padding: 0 0 1em 0;
+	border: none;
+}
+
+.single-item.groups.calendar .bp-widget h4
+{
+	font-weight: bold;
+	margin-bottom: 1em;
+}
+
+.single-item.groups.calendar .bp-widget h4 span
+{
+	font-size: 14px;
+}
+
+.single-item.groups.calendar .bp-widget table.calendar-view
+{
+	margin: 0 0 1em 0;
+	width: 100%;
+	margin: 0;
+}
+
+.single-item.groups.calendar table.calendar-view td.cal-left
+{
+	width: 35%;
+	vertical-align: top;
+}
+
+.single-item.groups.calendar table.calendar-view td.cal-left table
+{
+	width: 100%;
+}
+
+.single-item.groups.calendar table.calendar-view td.cal-left table th,
+.single-item.groups.calendar table.calendar-view td.cal-left table td
+{
+	font-size: 14px;
+	padding: 6px 4px;
+}
+
+/*
+.single-item.groups.calendar table.calendar-view td.cal-left table td
+{
+	background: #f6f6f6;
+}
+*/
+
+.single-item.groups.calendar table.calendar-view td.cal-left table td.highlighted
+{
+	/* background-color: #78c8ce; */
+	font-weight: bold;
+	/* color: #78c8ce; */
+}
+
+.single-item.groups.calendar table.calendar-view td.cal-left table td.passed a
+{
+	color: #999;
+}
+
+.single-item.groups.calendar .bp-widget table.calendar-view td.cal-right
+{
+	padding-left: 20px;
+	vertical-align: top;
+}
+
+.single-item.groups.calendar .bp-widget + .bp-widget
+{
+	margin-top: 15px;
+	padding: 5px 10px 15px 10px;
+}
+
+.single-item.groups.calendar .year-cal-item table td.passed a
+{
+	color: #999;
+}
+
+.single-item.groups.calendar .year-cal-item table th,
+.single-item.groups.calendar .year-cal-item table td
+{
+	font-size: 14px;
+	padding: 6px 4px;
+}
+
+
+
+/* BuddyPress Docs */
+#associated_group_summary img.avatar
+{
+	float: left;
+}
+
+#associated_group_summary .item > a
+{
+	display: block;
+}
+
+/* Fix WP Editor, which assumes W3C box model */
+.wp-editor-wrap * {
+	box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	-webkit-box-sizing: content-box;
+}
+
+/* Except Quicktags buttons, which do use border-box! */
+.wp-editor-wrap .quicktags-toolbar * {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+textarea#comment
+{
+	width: 100%;
+}
+
+
+
+/* WP Chat */
+body div.wpmudev-chat-box p
+{
+	font-size: 11px;
+	word-wrap: normal;
+	word-break: normal;
+	-ms-word-break: inherit;
+}
+
+body div.wpmudev-chat-box div.wpmudev-chat-module-message-area textarea.wpmudev-chat-send
+{
+	font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
+	font-size: 11px;
+}
+
+body.buddypress #buddypress ul#member-list div.action div.wpmudev-chat-now-button,
+body.buddypress #buddypress ul#members-list div.action div.wpmudev-chat-now-button
+{
+	margin: 0;
+	float: right;
+}
+
+body.buddypress #buddypress ul#member-list div.action div.wpmudev-chat-now-button a,
+body.buddypress #buddypress ul#members-list div.action div.wpmudev-chat-now-button a
+{
+	display: inline;
+	padding: 7px 12px !important;
+	font-size: 11px;
+	line-height: 1.6;
+	font-weight: 600;
+	text-transform: uppercase;
+	background-color: #78c8ce;
+	color: #FFF;
+	border: none;
+	border-radius: 2px;
+}
+
+
+
+/* Member List - WP Chat fixes */
+#buddypress #member-list .member-info,
+#buddypress #members-list .member-info
+{
+	float: left;
+	width: 60%;
+}
+
+#buddypress #member-list .action,
+#buddypress #members-list .action
+{
+	float: right;
+	width: 40%;
+	margin-top: 10px;
+}
+
+#buddypress #member-list span.activity,
+#buddypress #members-list span.activity
+{
+	display: block;
+	text-align: left;
+	float: left;
+	margin-left: 0;
+}
+
+#buddypress #member-list .ass_members_status,
+#buddypress #members-list .ass_members_status
+{
+	clear: right;
+	text-align: right;
+}
+
+@media only screen and (max-width: 540px) {
+	#buddypress #member-list .member-info,
+	#buddypress #members-list .member-info
+	{
+		float: none;
+		width: auto;
+	}
+
+	#buddypress #member-list .action,
+	#buddypress #members-list .action
+	{
+		float: none;
+		width: auto;
+		margin-top: 10px;
+		clear: left;
+	}
+}
+
+
+
+/* Footer */
+footer
+{
+	background-color: #DADADA;
+	padding-top: 24px;
+}
+
+.lms-logos,
+.lms-logos li
+{
+	list-style: none;
+	list-style-image: none;
+}
+
+.lms-logos li
+{
+	float: left;
+	width: 200px;
+}
+
+.lms-logos li img
+{
+	width: 120px;
+	height: 70px;
+}
+
+.lms-logos li img.creative-writing
+{
+	width: 152px;
+	height: 85px;
+}
+
+.lms-logos li img.uea
+{
+	margin-top: 5px;
+	width: 133px;
+	height: 80px;
+}
+
+.lms-logos li img.wcn
+{
+	margin-top: 5px;
+	width: 132px;
+	height: 80px;
+}
+
+/* BEGIN added by Sam Oakley*/
+
+.translation-logos li
+{
+	list-style: none;
+	list-style-image: none;
+	display: inline-block;
+}
+
+.translation-logos li img
+{
+
+}
+
+.lms-logos li img.select-centre-logo
+{
+	width: 196px;
+	height: 80px;
+}
+
+.lms-logos li img.translators-lab-logo
+{
+	margin-top: 5px;
+	width: 255px;
+	height: 80px;
+}
+
+/* END added by Sam Oakley*/
+
+#footerlogo
+{
+    max-width: 96px;
+}
+
+

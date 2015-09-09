@@ -1,0 +1,167 @@
+<?php
+
+/*============================================*/
+/*=====  REGISTER CUSTOM IMAGE SIZES  ========*/
+/*============================================*/
+
+if(function_exists('add_image_size')){
+  function wplms_add_image_sizes() {
+	add_image_size('mini', 120, 999);
+	add_image_size('small', 310, 9999);
+	add_image_size('medium', 460, 9999);
+	add_image_size('big', 768, 9999);
+  }
+  add_action( 'init', 'wplms_add_image_sizes' );
+}
+
+add_filter( 'image_size_names_choose', 'wplms_custom_image_sizes' );
+function wplms_custom_image_sizes( $sizes ) {
+	$custom_sizes = array(
+		'big' => 'Big Size',
+		'small' => 'Small Size',
+		'mini' => 'Extra small/Mini'
+	);
+	return array_merge( $sizes, $custom_sizes );
+}
+
+
+
+/*=====================================================*/
+/*===========  REGISTER CUSTOM USER ROLES  ============*/
+/*=====================================================*/
+
+if(!function_exists('vibe_user_roles')){
+	function vibe_user_roles(){
+
+		$teacher_capability = array(
+			'delete_posts'=> true,
+			'delete_published_posts'=> true,
+			'edit_posts'=> true,
+			'manage_categories' => true,
+			'edit_published_posts'=> true,
+			'publish_posts'=> true,
+			'read' => true,
+			'upload_files'=> true,
+			'unfiltered_html'=> true,
+			'bp_moderate'=> true,
+			'post_comments'=> true,
+			'level_1' => true
+		);
+
+		$student_capability = array(
+			'read' => true,
+			'post_comments'=> true,
+		);
+
+		add_role( 'student', __('Student','vibe'), $student_capability );
+		add_role( 'instructor', __('Instructor','vibe'), $teacher_capability );
+		
+	}
+	
+	add_action('init','vibe_user_roles');
+	
+}
+
+/* ===== FIX FOR Existing Instructors ====== */
+function add_theme_caps() {
+	// gets the author role
+	$role = get_role( 'instructor' );
+	$role->add_cap( 'unfiltered_html' );
+	$role->add_cap( 'bp_moderate' );
+	$role->add_cap( 'post_comments' );
+}
+add_action( 'admin_init', 'add_theme_caps');
+
+
+
+/*=================================*/
+/*===========  HEADER  ============*/
+/*=================================*/
+
+function vibe_header_essentials(){
+	$favicon = VIBE_URL . '/images/favicon.png';
+	echo '<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="'.$favicon.'" />
+<link rel="icon" type="image/png" href="'.$favicon.'">
+<!--[if lt IE 9]>
+	<script src="'.VIBE_URL . '/js/html5shiv.js"></script>
+<![endif]-->
+';
+
+}
+add_action('wp_enqueue_scripts', 'vibe_header_essentials');
+
+
+
+/*===========================================*/
+/*===========  REGISTER SCRIPTS  ============*/
+/*===========================================*/
+
+//ENQUEUE SCRIPTS TO HEAD
+function enqueue_head() {
+	if( ! is_admin() ) {
+		wp_enqueue_style( 'twitter_bootstrap', VIBE_URL . '/css/bootstrap.css');
+		wp_enqueue_style( 'fonticons-css', VIBE_URL . '/css/fonticons.css' );
+		wp_enqueue_style( 'animation-css', VIBE_URL . '/css/animate.css' );
+		wp_enqueue_style( 'buddypress-css', VIBE_URL . '/css/buddypress.css' );
+		wp_enqueue_style( 'bbpress-css', VIBE_URL . '/css/bbpress.css' );
+		wp_enqueue_style( 'style-css', VIBE_URL . '/css/style.css' );
+		wp_enqueue_style( 'theme-css', get_stylesheet_uri(), 'twitter_bootstrap');
+		wp_enqueue_script( 'bootstrap', VIBE_URL . '/js/bootstrap.min.js', array( 'jquery' ) );
+	}
+}
+add_action('wp_enqueue_scripts', 'enqueue_head');
+
+
+
+// ENQUEUE SCRIPTS TO FOOTER
+function enqueue_footer() {
+	if(!is_admin()){
+		wp_enqueue_script( 'modernizr', VIBE_URL . '/js/modernizr.custom.js');
+		wp_enqueue_script( 'cookie', VIBE_URL . '/js/jquery.cookie.js');
+		wp_enqueue_script( 'buddypress-js', VIBE_URL . '/js/buddypress.js' );
+		$params = array(
+			'accepted'			=> __( 'Accepted', 'vibe' ),
+			'close'			   => __( 'Close', 'vibe' ),
+			'comments'			=> __( 'comments', 'vibe' ),
+			'leave_group_confirm' => __( 'Are you sure you want to leave this group?', 'vibe' ),
+			'mark_as_fav'		  => __( 'Favorite', 'vibe' ),
+			'my_favs'			 => __( 'My Favorites', 'vibe' ),
+			'rejected'			=> __( 'Rejected', 'vibe' ),
+			'remove_fav'		  => __( 'Remove Favorite', 'vibe' ),
+			'show_all'			=> __( 'Show all', 'vibe' ),
+			'show_all_comments'   => __( 'Show all comments for this thread', 'vibe' ),
+			'show_x_comments'	 => __( 'Show all %d comments', 'vibe' ),
+			'unsaved_changes'	 => __( 'Your profile has unsaved changes. If you leave the page, the changes will be lost.', 'vibe' ),
+			'view'				=> __( 'View', 'vibe' ),
+		);
+
+		// localise
+		wp_localize_script( 'buddypress-js', 'BP_DTheme', $params );
+		wp_enqueue_script( 'custom', VIBE_URL . '/js/custom.js');
+	}
+}
+
+add_action('wp_footer', 'enqueue_footer');
+
+
+
+/*=========================================*/
+/*===========  REGISTER MENUS  ============*/
+/*=========================================*/
+//ENABLE MENUS
+if(!function_exists('register_vibe_menus')){
+	function register_vibe_menus() {
+		register_nav_menus(
+			array(
+				'top-menu' => __( 'Top Menu','vibe' ),
+				'main-menu' => __( 'Main Menu','vibe' ),
+				'mobile-menu' => __( 'Mobile Menu','vibe' ),
+				'footer-menu' => __( 'Footer Menu','vibe' )
+			   )
+		  );
+	}
+	add_action( 'init', 'register_vibe_menus' );
+}
+
+
