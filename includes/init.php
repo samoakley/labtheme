@@ -16,7 +16,7 @@ function newwriting_after_setup_theme() {
 	add_theme_support( 'bp-default-responsive' );
 	add_theme_support( 'html5', array( 'gallery', 'caption' ) );
 	add_theme_support( 'post-formats', array( 'aside','image','quote','status','video','audio','chat','gallery' ) );
-	
+
 }
 add_action( 'after_setup_theme', 'newwriting_after_setup_theme' );
 
@@ -122,8 +122,8 @@ add_filter( 'wp_title', 'vibe_wp_title', 10, 2 );
 
 
 
-if(!function_exists('vibe_login_logo')) {
-	function vibe_login_logo() {
+if ( ! function_exists( 'newwriting_login_logo' ) ) {
+	function newwriting_login_logo() {
 
 		?>
 		<style type="text/css">
@@ -174,10 +174,18 @@ if(!function_exists('vibe_login_logo')) {
 			div.error, .login #login_error{
 				border-radius: 2px;
 			}
+			#login form p.indicator-hint {
+				color: #fff;
+			}
+			.login #backtoblog a:focus,
+			.login #nav a:focus,
+			.login h1 a:focus {
+				color: #eee;
+			}
 		</style>
 		<?php
 	}
 }
-add_action( 'login_enqueue_scripts', 'vibe_login_logo' );
+add_action( 'login_enqueue_scripts', 'newwriting_login_logo' );
 
 
