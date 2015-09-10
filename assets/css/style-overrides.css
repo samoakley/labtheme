@@ -455,6 +455,11 @@ table.doctable
 	padding: 6px 4px;
 }
 
+.widget.bp_group_calendar_user_groups .widget-error
+{
+	padding: 8px;
+}
+
 
 
 /* BuddyPress Docs */
