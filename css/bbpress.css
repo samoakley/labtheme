@@ -189,13 +189,14 @@ li.bbp-topic-freshness a {
 	float: left;
 	text-align: center;
 	width: 115px;
+	padding-bottom: 2px;
 }
 
 #bbpress-forums div.bbp-topic-author img.avatar,
 #bbpress-forums div.bbp-reply-author img.avatar {
 	border: 0;
 	max-width: 80px;
-	margin: 12px auto 0 auto;
+	margin: 18px auto 0 auto;
 	float: none;
 	border-radius:2px;
 	box-shadow:0 1px 2px #bbb;
@@ -216,7 +217,7 @@ li.bbp-topic-freshness a {
 #bbpress-forums div.bbp-topic-content,
 #bbpress-forums div.bbp-reply-content {
 	margin-left: 140px;
-	padding: 12px 12px 12px 0;
+	padding: 18px 12px 0 0;
 	text-align: left;
 }
 
@@ -244,7 +245,7 @@ div.bbp-reply-header,
 li.bbp-body div.hentry {
 	margin-bottom: 0;
 	overflow: hidden;
-	padding: 8px;
+	padding: 8px 8px 18px 14px;
 	border-bottom: 1px solid #EFEFEF;
 }
 
@@ -275,6 +276,21 @@ div.bbp-reply-header {
 
 .bbp-header #subscription-toggle a {
 	color:#FFF;
+}
+
+div.topic.status-publish.hentry,
+div.reply.status-publish.hentry
+{
+}
+
+div.topic.status-publish.hentry:after,
+div.reply.status-publish.hentry:after
+{
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
 }
 
 .bbp-threaded-replies {
